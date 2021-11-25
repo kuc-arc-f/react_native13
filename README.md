@@ -11,7 +11,7 @@
 ***
 ### Summary
 
-Ract Naetive + headlessCMS API, app sample 
+React Native + headlessCMS API, app sample 
 
 ***
 ### require
