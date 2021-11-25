@@ -11,7 +11,7 @@
 ***
 ### Summary
 
-Ract Naetive + apollo-client + headlessCMS, app sample 
+Ract Naetive + headlessCMS API, app sample 
 
 ***
 ### require
