@@ -17,6 +17,7 @@ import { MainScreen } from './src/MainScreen';
 import { TestScreen } from './src/TestScreen';
 import { ComposeScreen } from './src/ComposeScreen';
 import { ShowScreen } from './src/ShowScreen';
+import { EditScreen } from './src/EditScreen';
 
 const Stack = createStackNavigator();
 
@@ -40,6 +41,13 @@ const App = () => {
               title: "Create",
             }}
           />
+          <Stack.Screen
+            name="EditScreen"
+            component={EditScreen}
+            options={{
+              title: "Edit",
+            }}
+          />          
           <Stack.Screen
             name="ShowScreen"
             component={ShowScreen}

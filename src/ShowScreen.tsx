@@ -52,21 +52,44 @@ export  class ShowScreen  extends React.Component<IProps, IState> {
   }  
   async onPressDelete(){
     try{
+      const cfg = config.getConfig();
+      const item = {
+        id: this.state.id,
+      }
+//console.log(item)
+      const res = await fetch(cfg.API_URL + '/api/post/delete/tasks', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'apikey': cfg.MY_API_KEY },
+        body: JSON.stringify(item),
+      });
+      if (res.status === 200) {
+        this.props.navigation.goBack();
+      } else {
+        throw new Error(await res.text());
+      }      
 // console.log("#onPressDelete");
-      this.props.navigation.goBack();
     } catch (e) {
       console.error(e);
     }
   }  
   render(){
-//console.log("id=", this.state.id );
-// console.log(this.state );
+console.log(this.state.item );
     return (
       <View style={styles.container}>
         <Text>Welcome, Show</Text>
         <Text>id: {this.state.id}</Text>
         <Text style={{ marginBottom: 16 }}
         >title: {this.state.item.title}</Text>
+        <Button
+        mode="contained"
+        style={{ marginBottom: 16 }}
+        onPress={() => {
+          this.props.navigation.navigate('EditScreen', {
+            id: this.state.id
+          });
+        }}        
+        >Edit
+        </Button>        
         <Button
         mode="contained"
         onPress={() => this.onPressDelete()}
